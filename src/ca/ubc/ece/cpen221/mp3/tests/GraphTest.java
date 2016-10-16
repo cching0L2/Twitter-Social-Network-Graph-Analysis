@@ -1,6 +1,7 @@
 package ca.ubc.ece.cpen221.mp3.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import ca.ubc.ece.cpen221.mp3.graph.AdjacencyListGraph;
+import ca.ubc.ece.cpen221.mp3.graph.*;
 import ca.ubc.ece.cpen221.mp3.staff.Graph;
 import ca.ubc.ece.cpen221.mp3.staff.Vertex; 
 
@@ -120,8 +121,7 @@ public class GraphTest {
         graph.addVertex(z);
         graph.addEdge(y, z); // y -> z
         
-        List<Vertex> yDownstream = graph.getDownstreamNeighbors(y); 
-        assertTrue(yDownstream.contains(z)); 
+        assertTrue(graph.edgeExists(y, z));
     }
     
     @Test
@@ -182,7 +182,7 @@ public class GraphTest {
     public static Collection<Class<?>> getGraph(){
         List<Class<?>> graphs = new ArrayList<Class<?>>();
         graphs.add(AdjacencyListGraph.class);
-        //graphs.add(AdjacencyMatrixGraph.class);
+        graphs.add(AdjacencyMatrixGraph.class);
         return graphs; 
     }
 
