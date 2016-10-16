@@ -42,7 +42,6 @@ public class AdjacencyMatrixGraph implements Graph {
         List<Boolean> row = graph.get(j); 
         row.set(i, new Boolean(true));
         
-        printMatrix(); 
     }
 
     @Override
@@ -98,6 +97,7 @@ public class AdjacencyMatrixGraph implements Graph {
         return -1; 
     }
     
+    @SuppressWarnings("unused")
     private void printMatrix(){
         System.out.println();
         System.out.print("  ");
